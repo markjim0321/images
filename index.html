@@ -87,17 +87,107 @@
         width: 22%;  /* 電腦一排4個 */
     }
 }
+
+.nav {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    overflow-x: auto;
+    border-bottom: 1px solid #eee;
+}
+
+/* 電腦版置中 */
+@media (min-width: 768px) {
+    .nav {
+        justify-content: center;
+        overflow-x: visible; /* 電腦不用滑 */
+    }
+}
+
+.nav a {
+    text-decoration: none;
+    padding: 8px 12px;
+    background: #f4d3a2;
+    border-radius: 20px;
+    color: #8B4513;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    background: #e6b97c;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.category {
+    margin-bottom: 40px;
+    scroll-margin-top: 80px; /* 這個數字可以調 */
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f4d3a2;
+    color: #8B4513;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: none; /* 一開始隱藏 */
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+#backToTop:hover {
+    background-color: #e0b87c;
+}
+
+footer {
+    background-color: #f4d3a2;
+    color: #8B4513;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
     </style>
 </head>
 
 <body>
 
+
+
 <header>
     <h1>🍞 暖男麵包鋪</h1>
 </header>
 
+<div class="nav">
+    <a href="#european">歐包</a>
+    <a href="#sweet">甜麵包</a>
+    <a href="#buns">餐包</a>
+    <a href="#toast">吐司</a>
+    <a href="#savory">鹹麵包</a>
+    <a href="#dessert">西點</a>
+    <a href="#cakes">蛋糕</a>
+    <a href="#meal-boxes">餐盒</a>
+</div>
+
 <!-- 歐包 -->
-<div class="category">
+<div class="category" id="european">
     <h2>歐包 (European Bread)</h2>
     <div class="menu">
         <div class="item">
@@ -134,129 +224,167 @@
 </div>
 
 <!-- 甜麵包 -->
-<div class="category">
+<div class="category" id="sweet">
     <h2>甜麵包 (Sweet Bread)</h2>
     <div class="menu">
 
-        <div class="item"><img src=""><h3>肉桂捲</h3><p>NT$42</p></div>
-        <div class="item"><img src=""><h3>炸彈奶酥麵包</h3><p>NT$42</p></div>
-        <div class="item"><img src=""><h3>奶油田螺</h3><p>NT$28</p></div>
-        <div class="item"><img src=""><h3>花生夾心</h3><p>NT$25</p></div>
-        <div class="item"><img src=""><h3>紅豆包</h3><p>NT$25</p></div>
-        <div class="item"><img src=""><h3>克林姆</h3><p>NT$25</p></div>
-        <div class="item"><img src=""><h3>巧克力大理石</h3><p>NT$65</p></div>
-        <div class="item"><img src=""><h3>椰香蔓越莓</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>木材麵包</h3><p>NT$55</p></div>
-        <div class="item"><img src=""><h3>古早味甜甜圈</h3><p>NT$22</p></div>
-        <div class="item"><img src=""><h3>小可頌</h3><p>NT$65</p></div>
-        <div class="item"><img src=""><h3>牛角麵包</h3><p>NT$38</p></div>
-        <div class="item"><img src=""><h3>芝麻貝果</h3><p>NT$42</p></div>
-        <div class="item"><img src=""><h3>⭐ 蔓越莓起司貝果</h3><p>NT$45</p></div>
-        <div class="item"><img src=""><h3>韓國麻薯</h3><p>NT$20</p></div>
-        <div class="item"><img src=""><h3>維也納</h3><p>NT$150</p></div>
+        <div class="item"><img src="肉桂捲.jpg" alt="肉桂捲"><h3>肉桂捲</h3><p>NT$42</p></div>
+        <div class="item"><img src="炸彈奶酥麵包.jpg" alt="炸彈奶酥麵包"><h3>炸彈奶酥麵包</h3><p>NT$42</p></div>
+        <div class="item"><img src="奶油田螺.jpg" alt="奶油田螺"><h3>奶油田螺</h3><p>NT$28</p></div>
+        <div class="item"><img src="花生夾心.jpg" alt="花生夾心"><h3>花生夾心</h3><p>NT$25</p></div>
+        <div class="item"><img src="紅豆包.jpg" alt="紅豆包"><h3>紅豆包</h3><p>NT$25</p></div>
+        <div class="item"><img src="克林姆.jpg" alt="克林姆"><h3>克林姆</h3><p>NT$25</p></div>
+        <div class="item"><img src="巧克力大理石.jpg" alt="巧克力大理石"><h3>巧克力大理石</h3><p>NT$65</p></div>
+        <div class="item"><img src="椰香蔓越莓.jpg" alt="椰香蔓越莓"><h3>椰香蔓越莓</h3><p>NT$50</p></div>
+        <div class="item"><img src="木材麵包.jpg" alt="木材麵包"><h3>木材麵包</h3><p>NT$55</p></div>
+        <div class="item"><img src="古早味甜甜圈.jpg" alt="古早味甜甜圈"><h3>古早味甜甜圈</h3><p>NT$22</p></div>
+        <div class="item"><img src="小可頌.jpg" alt="小可頌"><h3>小可頌</h3><p>NT$65</p></div>
+        <div class="item"><img src="牛角麵包.jpg" alt="牛角麵包"><h3>牛角麵包</h3><p>NT$38</p></div>
+        <div class="item"><img src="芝麻貝果.jpg" alt="芝麻貝果"><h3>芝麻貝果</h3><p>NT$42</p></div>
+        <div class="item"><img src="蔓越莓起司貝果.jpg" alt="⭐ 蔓越莓起司貝果"><h3>⭐ 蔓越莓起司貝果</h3><p>NT$45</p></div>
+        <div class="item"><img src="韓國麻薯.jpg" alt="韓國麻薯"><h3>韓國麻薯</h3><p>NT$20</p></div>
+        <div class="item"><img src="維也納.jpg" alt="維也納"><h3>維也納</h3><p>NT$150</p></div>
 
     </div>
 </div>
 
 <!-- 餐包 -->
-<div class="category">
+<div class="category" id="buns">
     <h2>餐包 (Buns)</h2>
     <div class="menu">
 
-        <div class="item"><img src=""><h3>奶酥餐包</h3><p>NT$40</p></div>
-        <div class="item"><img src=""><h3>葡萄餐包</h3><p>NT$40</p></div>
-        <div class="item"><img src=""><h3>⭐ 黑眼豆豆餐包</h3><p>NT$45</p></div>
-        <div class="item"><img src=""><h3>脆腸餐包</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>核桃乳酪餐包</h3><p>NT$42</p></div>
-        <div class="item"><img src=""><h3>奶油餐包</h3><p>NT$40</p></div>
-        <div class="item"><img src=""><h3>菠蘿餐包</h3><p>NT$45</p></div>
-        <div class="item"><img src=""><h3>⭐ 乳酪三兄弟</h3><p>NT$50</p></div>
+        <div class="item"><img src="奶酥餐包.jpg" alt="奶酥餐包"><h3>奶酥餐包</h3><p>NT$40</p></div>
+        <div class="item"><img src="葡萄餐包.jpg" alt="葡萄餐包"><h3>葡萄餐包</h3><p>NT$40</p></div>
+        <div class="item"><img src="黑眼豆豆餐包.jpg" alt="黑眼豆豆餐包"><h3>⭐ 黑眼豆豆餐包</h3><p>NT$45</p></div>
+        <div class="item"><img src="脆腸餐包.jpg" alt="脆腸餐包"><h3>脆腸餐包</h3><p>NT$50</p></div>
+        <div class="item"><img src="核桃乳酪餐包.jpg" alt="核桃乳酪餐包"><h3>核桃乳酪餐包</h3><p>NT$42</p></div>
+        <div class="item"><img src="奶油餐包.jpg" alt="奶油餐包"><h3>奶油餐包</h3><p>NT$40</p></div>
+        <div class="item"><img src="菠蘿餐包.jpg" alt="菠蘿餐包"><h3>菠蘿餐包</h3><p>NT$45</p></div>
+        <div class="item"><img src="乳酪三兄弟.jpg" alt="⭐ 乳酪三兄弟"><h3>⭐ 乳酪三兄弟</h3><p>NT$50</p></div>
 
     </div>
 </div>
 
 <!-- 吐司 -->
-<div class="category">
+<div class="category" id="toast">
     <h2>吐司 (Toast)</h2>
     <div class="menu">
 
-        <div class="item"><img src=""><h3>葡萄吐司</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>全麥核桃吐司</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>菠蘿奶酥吐司</h3><p>NT$80</p></div>
-        <div class="item"><img src=""><h3>芋泥吐司</h3><p>NT$70</p></div>
-        <div class="item"><img src=""><h3>紅豆吐司</h3><p>NT$70</p></div>
-        <div class="item"><img src=""><h3>養生黑芝麻吐司</h3><p>NT$70</p></div>
-        <div class="item"><img src=""><h3>⭐ 紅豆黑糖麻吉吐司</h3><p>NT$75</p></div>
-        <div class="item"><img src=""><h3>⭐ 起司核桃吐司</h3><p>NT$70</p></div>
-        <div class="item"><img src=""><h3>⭐ 火腿起司吐司</h3><p>NT$70</p></div>
-        <div class="item"><img src=""><h3>白吐司 (薄片)</h3><p>NT$55</p></div>
-        <div class="item"><img src=""><h3>白吐司 (厚片)</h3><p>NT$55</p></div>
-        <div class="item"><img src=""><h3>海鹽吐司</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>⭐ 咖啡奶酥吐司</h3><p>NT$80</p></div>
+        <div class="item"><img src="葡萄吐司.jpg" alt="葡萄吐司"><h3>葡萄吐司</h3><p>NT$50</p></div>
+        <div class="item"><img src="全麥核桃吐司.jpg" alt="全麥核桃吐司"><h3>全麥核桃吐司</h3><p>NT$50</p></div>
+        <div class="item"><img src="菠蘿奶酥吐司.jpg" alt="菠蘿奶酥吐司"><h3>菠蘿奶酥吐司</h3><p>NT$80</p></div>
+        <div class="item"><img src="芋泥吐司.jpg" alt="芋泥吐司"><h3>芋泥吐司</h3><p>NT$70</p></div>
+        <div class="item"><img src="紅豆吐司.jpg" alt="紅豆吐司"><h3>紅豆吐司</h3><p>NT$70</p></div>
+        <div class="item"><img src="養生黑芝麻吐司.jpg" alt="養生黑芝麻吐司"><h3>養生黑芝麻吐司</h3><p>NT$70</p></div>
+        <div class="item"><img src="紅豆黑糖麻吉吐司.jpg" alt="紅豆黑糖麻吉吐司"><h3>⭐ 紅豆黑糖麻吉吐司</h3><p>NT$75</p></div>
+        <div class="item"><img src="起司核桃吐司.jpg" alt="起司核桃吐司"><h3>⭐ 起司核桃吐司</h3><p>NT$70</p></div>
+        <div class="item"><img src="火腿起司吐司.jpg" alt="火腿起司吐司"><h3>⭐ 火腿起司吐司</h3><p>NT$70</p></div>
+        <div class="item"><img src="白吐司.jpg" alt="白吐司 (薄片)"><h3>白吐司 (薄片)</h3><p>NT$55</p></div>
+        <div class="item"><img src="白吐司.jpg" alt="白吐司 (厚片)"><h3>白吐司 (厚片)</h3><p>NT$55</p></div>
+        <div class="item"><img src="海鹽吐司.jpg" alt="海鹽吐司"><h3>海鹽吐司</h3><p>NT$50</p></div>
+        <div class="item"><img src="咖啡奶酥吐司.jpg" alt="咖啡奶酥吐司"><h3>⭐ 咖啡奶酥吐司</h3><p>NT$80</p></div>
 
     </div>
 </div>
 
 <!-- 鹹麵包 -->
-<div class="category">
+<div class="category" id="savory">
     <h2>鹹麵包 (Savory Bread)</h2>
     <div class="menu">
 
-        <div class="item"><img src=""><h3>起酥肉鬆</h3><p>NT$42</p></div>
-        <div class="item"><img src=""><h3>香蔥肉鬆</h3><p>NT$45</p></div>
-        <div class="item"><img src=""><h3>特濃起司條</h3><p>NT$35</p></div>
-        <div class="item"><img src=""><h3>肉鬆麵包</h3><p>NT$35</p></div>
-        <div class="item"><img src=""><h3>熱狗堡</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>蒜香軟法</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>⭐ 香芋肉脯</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>蔥仔包</h3><p>NT$42</p></div>
-        <div class="item"><img src=""><h3>⭐ 招牌羅宋</h3><p>NT$50</p></div>
+        <div class="item"><img src="起酥肉鬆.jpg" alt="起酥肉鬆"><h3>起酥肉鬆</h3><p>NT$42</p></div>
+        <div class="item"><img src="香蔥肉鬆.jpg" alt="香蔥肉鬆"><h3>香蔥肉鬆</h3><p>NT$45</p></div>
+        <div class="item"><img src="特濃起司條.jpg" alt="特濃起司條"><h3>特濃起司條</h3><p>NT$35</p></div>
+        <div class="item"><img src="肉鬆麵包.jpg" alt="肉鬆麵包"><h3>肉鬆麵包</h3><p>NT$35</p></div>
+        <div class="item"><img src="熱狗堡.jpg" alt="熱狗堡"><h3>熱狗堡</h3><p>NT$50</p></div>
+        <div class="item"><img src="軟法.jpg" alt="蒜香軟法"><h3>蒜香軟法</h3><p>NT$50</p></div>
+        <div class="item"><img src="香芋肉脯.jpg" alt="香芋肉脯"><h3>⭐ 香芋肉脯</h3><p>NT$50</p></div>
+        <div class="item"><img src="蔥仔包.jpg" alt="蔥仔包"><h3>蔥仔包</h3><p>NT$42</p></div>
+        <div class="item"><img src="羅宋.jpg" alt="招牌羅宋"><h3>⭐ 招牌羅宋</h3><p>NT$50</p></div>
 
     </div>
 </div>
 
 <!-- 西點 -->
-<div class="category">
+<div class="category" id="dessert">
     <h2>西點 (Pastries/Desserts)</h2>
     <div class="menu">
 
-        <div class="item"><img src=""><h3>巧克力三明治</h3><p>NT$40</p></div>
-        <div class="item"><img src=""><h3>起酥蛋糕</h3><p>NT$30</p></div>
-        <div class="item"><img src=""><h3>乳酪蛋糕</h3><p>NT$35</p></div>
-        <div class="item"><img src=""><h3>⭐ 台式馬卡龍</h3><p>NT$70</p></div>
-        <div class="item"><img src=""><h3>太陽餅</h3><p>NT$30</p></div>
-        <div class="item"><img src=""><h3>蜂蜜蛋糕</h3><p>NT$40</p></div>
-        <div class="item"><img src=""><h3>檸檬塔</h3><p>NT$55</p></div>
-        <div class="item"><img src=""><h3>巴斯克乳酪</h3><p>NT$65</p></div>
-        <div class="item"><img src=""><h3>黃金小乳酪</h3><p>NT$50</p></div>
-        <div class="item"><img src=""><h3>⭐ 香草泡芙</h3><p>NT$70</p></div>
-
+        <div class="item"><img src="巧克力三明治.jpg" alt="巧克力三明治"><h3>巧克力三明治</h3><p>NT$40</p></div>
+        <div class="item"><img src="起酥蛋糕.jpg" alt="起酥蛋糕"><h3>起酥蛋糕</h3><p>NT$30</p></div>
+        <div class="item"><img src="乳酪蛋糕.jpg" alt="乳酪蛋糕"><h3>乳酪蛋糕</h3><p>NT$35</p></div>
+        <div class="item"><img src="台式馬卡龍.jpg" alt="台式馬卡龍"><h3>⭐ 台式馬卡龍</h3><p>NT$70</p></div>
+        <div class="item"><img src="太陽餅.jpg" alt="太陽餅"><h3>太陽餅</h3><p>NT$30</p></div>
+        <div class="item"><img src="蜂蜜蛋糕.jpg" alt="蜂蜜蛋糕"><h3>蜂蜜蛋糕</h3><p>NT$40</p></div>
+        <div class="item"><img src="檸檬塔.jpg" alt="檸檬塔"><h3>檸檬塔</h3><p>NT$55</p></div>
+        <div class="item"><img src="巴斯克乳酪.jpg" alt="巴斯克乳酪"><h3>巴斯克乳酪</h3><p>NT$65</p></div>
+        <div class="item"><img src="黃金小乳酪.jpg" alt="黃金小乳酪"><h3>黃金小乳酪</h3><p>NT$50</p></div>
+        <div class="item"><img src="香草泡芙.jpg" alt="香草泡芙"><h3>⭐ 香草泡芙</h3><p>NT$70</p></div>
+        <div class="item"><img src="strabarry.jpg" alt="草莓大福(三入)"><h3>⭐ 草莓大福(三入)</h3><p>NT$90</p></div>
     </div>
 </div>
 
 <!-- 蛋糕 -->
-<div class="category">
+<div class="category" id="cakes">
     <h2>蛋糕 (Cakes)</h2>
     <div class="menu">
-        <div class="item">
-            <img src="009.jpg" alt="水果塔">
-            <h3>水果塔</h3>
-            <p>NT$70</p>
-        </div>
+        <div class="item"><img src="黑森林蛋糕.jpg" alt="黑森林蛋糕"><h3>黑森林蛋糕 6吋/8吋/10吋</h3><p>NT$600/700/1000</p></div>
+        <div class="item"><img src="蜘蛛人蛋糕.jpg" alt="蜘蛛人蛋糕"><h3>蜘蛛人蛋糕 6吋/8吋/10吋</h3><p>NT$600/700/1000</p></div>
+        <div class="item"><img src="奧特曼蛋糕.jpg" alt="奧特曼蛋糕"><h3>奧特曼蛋糕 6吋/8吋/10吋</h3><p>NT$600/700/1000</p></div>
+        <div class="item"><img src="賣塊蛋糕.jpg" alt="賣塊蛋糕"><h3>賣塊蛋糕 6吋/8吋/10吋</h3><p>NT$600/700/1000</p></div>
+        <div class="item"><img src="汪汪隊蛋糕.jpg" alt="汪汪隊蛋糕"><h3>汪汪隊蛋糕 6吋/8吋/10吋</h3><p>NT$600/700/1000</p></div>
+        <div class="item"><img src="大耳狗蛋糕.jpg" alt="大耳狗蛋糕"><h3>大耳狗蛋糕 6吋/8吋/10吋</h3><p>NT$600/700/1000</p></div>
     </div>
 </div>
 
 <!-- 餐盒 -->
-<div class="category">
+<div class="category" id="meal-boxes">
     <h2>餐盒 (Meal Boxes)</h2>
     <div class="menu">
-        <div class="item">
-            <img src="009.jpg" alt="水果塔">
-            <h3>水果塔</h3>
-            <p>NT$70</p>
-        </div>
+        <div class="item"><img src="經典餐盒.jpg" alt="經典餐盒"><h3>經典餐盒</h3><p>NT$70</p></div>
+        <div class="item"><img src="豪華餐盒.jpg" alt="豪華餐盒"><h3>豪華餐盒</h3><p>NT$100</p></div>
+        <div class="item"><img src="素食餐盒.jpg" alt="素食餐盒"><h3>素食餐盒</h3><p>NT$80</p></div>
     </div>
 </div>
 
+<button id="backToTop">⬆ 回到頂端</button>
+
+<script>
+const btn = document.getElementById("backToTop");
+
+// 當滾動超過 200px 才顯示
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+// 點擊回到最上面
+btn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"  // 平滑滾動
+    });
+});
+</script>
 </body>
+
+<footer>
+    <div class="footer-content">
+        <p>🍞 暖男麵包鋪</p>
+        <p>地址：247新北市蘆洲區信義路222巷35號</p>
+        <p>電話：02-8285-8625</p>
+        <p>&copy; 2026 暖男麵包鋪 All Rights Reserved.</p>
+        <a href="您的LINE連結" target="_blank">
+            <img src="line-icon.png" alt="LINE" style="width:24px;height:24px;">
+        </a>
+        <a href="您的Facebook連結" target="_blank">
+            <img src="facebook-icon.png" alt="Facebook" style="width:24px;height:24px;">
+        </a>
+        
+    </div>
+</footer>
+
 </html>
